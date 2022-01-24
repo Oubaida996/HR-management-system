@@ -1,0 +1,89 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+
+/* ================Start Header */
+
+.header {
+    background-color: #652cb3;
+    padding: 20px 10px;
+    color: white;
+    padding: 30px;
+    justify-content: space-between;
+    display: flex;
+}
+
+.logo {
+    font-size: 24px;
+}
+
+.header .links ul li {
+    list-style: none;
+    float: right;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.header .links ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+
+/* ================End Header */
+
+
+/* ================Start Main */
+
+table {
+    width: 100%;
+    height: 100%;
+}
+
+.main table .title {
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    width: 50%;
+    padding: 5px;
+    border-bottom: 1px solid black;
+}
+
+.main table td {
+    text-align: center;
+    font-size: 18px;
+    font-weight: lighter;
+    width: 50%;
+    padding: 5px;
+    border-bottom: 1px solid black;
+}
+
+
+/* ================End Main */
+
+
+/* ================Start Footer */
+
+.footer {
+    overflow: hidden;
+    background-color: #652cb3;
+    padding: 20px 10px;
+    color: white;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.footer h4 {
+    margin-top: 20px;
+}
+
+.footer a {
+    text-decoration: none;
+    color: white;
+}
+
+
+/* ================End Footer */
