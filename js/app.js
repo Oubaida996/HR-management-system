@@ -37,15 +37,19 @@ function randomSalary(min, max) {
 
 let employees = [];
 
-function Employee(empId, fullName, department, level, imageUrl, salary) {
+function Employee(empId, fullName, department, level, imageUrl, ) {
     this.empId = empId;
     this.fullName = fullName;
     this.department = department;
     this.level = level;
     this.imageUrl = imageUrl;
-    this.salary = salary;
+    this.salary = 0;
     employees.push(this);
 }
+
+
+let department = ["Administration", "Marketing", "Development", "Finance", ];
+let level = ["Senior", "Mid-Senior", "Junior"];
 
 // =========================End Constructor Function For Employee
 
@@ -87,25 +91,29 @@ Employee.prototype.render = function() {
 
 //========Start Create Employees Instances
 
-let emp1 = new Employee(1000, "Ghazi Samer", "Administration", "Senior");
-let emp2 = new Employee(1001, "Lana Ali", "Finance", "Senior");
-let emp3 = new Employee(1002, "Tamara Ayoub", "Marketing", "Senior");
-let emp4 = new Employee(1003, "Safi Walid", "Administration", "Mid-Senior");
-let emp5 = new Employee(1004, "Omar Zaid", "Development", "Senior");
-let emp6 = new Employee(1005, "Rana Saleh", "Development", "Junior");
-let emp7 = new Employee(1006, "Hadi Ahmad", "Finance", "Mid-Senior");
+let emp1 = new Employee(1000, "Ghazi Samer", department[0], level[0]);
+let emp2 = new Employee(1001, "Lana Ali", department[3], level[0]);
+let emp3 = new Employee(1002, "Tamara Ayoub", department[1], level[0]);
+let emp4 = new Employee(1003, "Safi Walid", department[0], level[1]);
+let emp5 = new Employee(1004, "Omar Zaid", department[2], level[0]);
+let emp6 = new Employee(1005, "Rana Saleh", department[2], level[2]);
+let emp7 = new Employee(1006, "Hadi Ahmad", department[3], level[1]);
 
 //========End Create Employees Instances
 
 
 
-emp1.render();
-emp2.render();
-emp3.render();
-emp4.render();
-emp5.render();
-emp6.render();
-emp7.render();
+for (let i = 0; i < employees.length; i++) {
+    employees[i].render();
+}
+
+// emp1.render();
+// emp2.render();
+// emp3.render();
+// emp4.render();
+// emp5.render();
+// emp6.render();
+// emp7.render();
 
 
 
