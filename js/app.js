@@ -2,7 +2,7 @@
 
 // =============Start This Function To Determine Value Of Salary By Level
 
-function levelSalary(level) {
+Employee.prototype.levelSalary = function(level) {
     let totalSalary = 0;
 
     switch (level) {
@@ -19,7 +19,11 @@ function levelSalary(level) {
             totalSalary = 555555;
             break;
     }
-    return totalSalary;
+    //Calculate the net salary where the tax percent is 7.5
+    let netSalary = totalSalary - totalSalary * (7.5 / 100);
+
+    this.salary = netSalary;
+    return netSalary;
 }
 
 // =============End This Function To Determine Value Of Salary By Level
@@ -37,7 +41,7 @@ function randomSalary(min, max) {
 
 let employees = [];
 
-function Employee(empId, fullName, department, level, imageUrl, ) {
+function Employee(empId, fullName, department, level, imageUrl) {
     this.empId = empId;
     this.fullName = fullName;
     this.department = department;
@@ -47,47 +51,28 @@ function Employee(empId, fullName, department, level, imageUrl, ) {
     employees.push(this);
 }
 
-
-let department = ["Administration", "Marketing", "Development", "Finance", ];
+let department = ["Administration", "Marketing", "Development", "Finance"];
 let level = ["Senior", "Mid-Senior", "Junior"];
 
 // =========================End Constructor Function For Employee
 
-// ===========Start Prototype Function For Calculating The Salary
 
-Employee.prototype.netSalary = function() {
-    //Calculate the salary depends on the employee level
-    let salary = levelSalary(this.level);
-
-    //Calculate the net salary where the tax percent is 7.5
-    let netSalary = salary - salary * (7.5 / 100);
-
-    this.salary = netSalary;
-
-    return this.salary;
-};
-
-// ===========End Prototype Function For Calculating The Salary
 
 // ===========Start Prototype Function To Render Each Employee Name With Their Salary In The Home Page
 
 Employee.prototype.render = function() {
-
     document.write(`       
      <table>
     <tr>
         <td>${this.fullName}</td>
-        <td>${this.netSalary()}</td>
+        <td>${this.levelSalary(this.level)}</td>
     </tr>  
 </table>`);
-
 };
 
 // ===========End Prototype Function To Render Each Employee Name With Their Salary In The Home Page
 
-
 //==============================================Start Main Code
-
 
 //========Start Create Employees Instances
 
@@ -101,8 +86,6 @@ let emp7 = new Employee(1006, "Hadi Ahmad", department[3], level[1]);
 
 //========End Create Employees Instances
 
-
-
 for (let i = 0; i < employees.length; i++) {
     employees[i].render();
 }
@@ -114,7 +97,5 @@ for (let i = 0; i < employees.length; i++) {
 // emp5.render();
 // emp6.render();
 // emp7.render();
-
-
 
 //==============================================End Main Code
