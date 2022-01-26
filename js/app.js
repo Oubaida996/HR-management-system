@@ -23,7 +23,7 @@ function randomSalary(min, max) {
 
 // ========================Start Constructor Function For Employee
 
-let employees = [];
+Employee.allEmp = [];
 
 function Employee(empId, fullName, department, level, imageUrl) {
     this.empId = empId;
@@ -32,7 +32,7 @@ function Employee(empId, fullName, department, level, imageUrl) {
     this.level = level;
     this.imageUrl = imageUrl;
     this.salary = 0;
-    employees.push(this);
+    Employee.allEmp.push(this);
 }
 
 let department = ["Administration", "Marketing", "Development", "Finance"];
@@ -127,8 +127,8 @@ let emp7 = new Employee(1006, "Hadi Ahmad", department[3], level[1], "../assets/
 
 //========End Create Employees Instances
 
-for (let i = 0; i < employees.length; i++) {
-    employees[i].render();
+for (let i = 0; i < Employee.allEmp.length; i++) {
+    Employee.allEmp[i].render();
 }
 
 // emp1.render();
@@ -159,12 +159,12 @@ function handleSubmit(event) {
     console.log(level);
     console.log(imgUrl);
 
-    // let newEmp = new Employee(generateUniqueNumber(), fullName, department, level);
-    // employees.push(newEmp);
+    let newEmp = new Employee(generateUniqueNumber(), fullName, department, level);
+    // Employee.allEmp.push(newEmp); //we don't need it because When i create a new emp it will push to Employee.allEmp array
 
-    // for (let i = 0; i < employees.length; i++) {
-    //     employees[i].render();
-    // }
+    for (let i = 0; i < Employee.allEmp.length; i++) {
+        Employee.allEmp[i].render();
+    }
 }
 
 //================End Event Listner To Get Data From Form
