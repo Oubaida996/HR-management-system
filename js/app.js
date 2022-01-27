@@ -213,7 +213,7 @@ for (let i = 0; i < Employee.allEmp.length; i++) {
 
 
 
-
+saveDataOnLocalStorage();
 
 
 
