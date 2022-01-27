@@ -3,6 +3,31 @@
 let form = document.getElementById("form");
 let empDiv = document.getElementById("employees");
 
+
+
+//========Start Function To Save Data In LocalStorage
+
+function saveDataOnLocalStorage() {
+
+    let stringifyData = JSON.stringify(Employee.allEmp);
+    let stringifyDepartment = JSON.stringify(department)
+    localStorage.setItem("employees", stringifyData);
+    localStorage.setItem("department", stringifyDepartment);
+
+}
+
+
+
+
+//========End Function To Save Data In LocalStorage
+
+
+
+
+
+
+
+
 //  ===============Start This Function To Generate Unique Number
 
 function generateUniqueNumber(params) {
@@ -31,7 +56,7 @@ function Employee(empId, fullName, department, level, imageUrl) {
     this.department = department;
     this.level = level;
     this.imageUrl = imageUrl;
-    this.salary = 0;
+    this.salary = this.levelSalary(this.level);
     Employee.allEmp.push(this);
 }
 
@@ -91,7 +116,6 @@ Employee.prototype.render = function() {
     image.width = "200";
     image.height = "200";
 
-
     let description = document.createElement("pre");
     description.textContent = `
     Name: ${this.fullName}-ID:${this.empId}
@@ -101,6 +125,9 @@ Department:${this.department}-Level:${this.level}
                  ${generateUniqueNumber()} `;
 
     background.appendChild(description);
+
+
+
 
     //     document.write(`
     //      <table>
@@ -117,13 +144,55 @@ Department:${this.department}-Level:${this.level}
 
 //========Start Create Employees Instances
 
-let emp1 = new Employee(1000, "Ghazi Samer", department[0], level[0], "../assets/Ghazi.jpg");
-let emp2 = new Employee(1001, "Lana Ali", department[3], level[0], "../assets/Hadi.jpg");
-let emp3 = new Employee(1002, "Tamara Ayoub", department[1], level[0], "../assets/Lana.jpg");
-let emp4 = new Employee(1003, "Safi Walid", department[0], level[1], "../assets/Omar.jpg");
-let emp5 = new Employee(1004, "Omar Zaid", department[2], level[0], "../assets/Rana.jpg");
-let emp6 = new Employee(1005, "Rana Saleh", department[2], level[2], "../assets/Safi.jpg");
-let emp7 = new Employee(1006, "Hadi Ahmad", department[3], level[1], "../assets/Tamara.jpg");
+let emp1 = new Employee(
+    1000,
+    "Ghazi Samer",
+    department[0],
+    level[0],
+    "../assets/Ghazi.jpg"
+);
+let emp2 = new Employee(
+    1001,
+    "Lana Ali",
+    department[3],
+    level[0],
+    "../assets/Hadi.jpg"
+);
+let emp3 = new Employee(
+    1002,
+    "Tamara Ayoub",
+    department[1],
+    level[0],
+    "../assets/Lana.jpg"
+);
+let emp4 = new Employee(
+    1003,
+    "Safi Walid",
+    department[0],
+    level[1],
+    "../assets/Omar.jpg"
+);
+let emp5 = new Employee(
+    1004,
+    "Omar Zaid",
+    department[2],
+    level[0],
+    "../assets/Rana.jpg"
+);
+let emp6 = new Employee(
+    1005,
+    "Rana Saleh",
+    department[2],
+    level[2],
+    "../assets/Safi.jpg"
+);
+let emp7 = new Employee(
+    1006,
+    "Hadi Ahmad",
+    department[3],
+    level[1],
+    "../assets/Tamara.jpg"
+);
 
 //========End Create Employees Instances
 
@@ -140,6 +209,18 @@ for (let i = 0; i < Employee.allEmp.length; i++) {
 // emp7.render();
 
 //==============================================End Main Code
+
+
+
+
+saveDataOnLocalStorage();
+
+
+
+
+
+
+
 
 //================Start Event Listner To Get Data From Form
 
@@ -159,12 +240,22 @@ function handleSubmit(event) {
     console.log(level);
     console.log(imgUrl);
 
-    let newEmp = new Employee(generateUniqueNumber(), fullName, department, level);
+
+
+    let newEmp = new Employee(
+        generateUniqueNumber(),
+        fullName,
+        department,
+        level,
+        imgUrl,
+    );
     // Employee.allEmp.push(newEmp); //we don't need it because When i create a new emp it will push to Employee.allEmp array
 
     for (let i = 0; i < Employee.allEmp.length; i++) {
         Employee.allEmp[i].render();
     }
+
+    saveDataOnLocalStorage();
 }
 
 //================End Event Listner To Get Data From Form
