@@ -22,3 +22,13 @@ Q1 :WE need more lectures in CSS  :(  \
     
 
 Q2: I took 5 hours to do it, but i thought that i will take less time like 2 hours  
+
+
+# Task 9
+
+## localStorage
+
+Q1 :Every thing is ok but I have problem at netTotalAvgSalary when return it   :(  \
+    
+
+Q2: I took 6 hours to do it, but i thought that i will take less time like 2 hours  
