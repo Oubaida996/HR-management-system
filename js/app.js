@@ -3,23 +3,56 @@
 let form = document.getElementById("form");
 let empDiv = document.getElementById("employees");
 
-
-
 //========Start Function To Save Data In LocalStorage
 
 function saveDataOnLocalStorage() {
-
     let stringifyData = JSON.stringify(Employee.allEmp);
-    let stringifyDepartment = JSON.stringify(department)
+    let stringifyDepartment = JSON.stringify(department);
     localStorage.setItem("employees", stringifyData);
     localStorage.setItem("department", stringifyDepartment);
-
 }
 
 
-
-
 //========End Function To Save Data In LocalStorage
+
+
+
+
+
+function getDataFromLocalStorage() {
+    let getData = localStorage.getItem("employees");
+    let parseData = JSON.parse(getData);
+    console.log(parseData);
+    if (parseData != null) {
+        for (let i = 0; i < parseData.length; i++) {
+            // console.log(parseData[i].imageUrl, "before");
+
+            let newEmp = new Employee(
+                parseData[i].empId,
+                parseData[i].fullName,
+                parseData[i].department,
+                parseData[i].level,
+                parseData[i].imageUrl,
+            );
+
+            // Employee.allEmp = parseData;
+            // console.log(Employee.allEmp, "  Employee.allEmp");
+
+        }
+    }
+
+    for (let i = 0; i < Employee.allEmp.length; i++) {
+        console.log(Employee.allEmp[i], "  Employee.allEmp ");
+        Employee.allEmp[i].render();
+    }
+
+
+
+
+
+
+}
+
 
 
 
@@ -126,9 +159,6 @@ Department:${this.department}-Level:${this.level}
 
     background.appendChild(description);
 
-
-
-
     //     document.write(`
     //      <table>
     //     <tr>
@@ -196,9 +226,11 @@ let emp7 = new Employee(
 
 //========End Create Employees Instances
 
-for (let i = 0; i < Employee.allEmp.length; i++) {
-    Employee.allEmp[i].render();
-}
+// console.log(Employee.allEmp);
+
+// for (let i = 0; i < Employee.allEmp.length; i++) {
+//     Employee.allEmp[i].render();
+// }
 
 // emp1.render();
 // emp2.render();
@@ -209,18 +241,6 @@ for (let i = 0; i < Employee.allEmp.length; i++) {
 // emp7.render();
 
 //==============================================End Main Code
-
-
-
-
-saveDataOnLocalStorage();
-
-
-
-
-
-
-
 
 //================Start Event Listner To Get Data From Form
 
@@ -240,22 +260,24 @@ function handleSubmit(event) {
     console.log(level);
     console.log(imgUrl);
 
-
-
     let newEmp = new Employee(
         generateUniqueNumber(),
         fullName,
         department,
         level,
-        imgUrl,
+        imgUrl
     );
     // Employee.allEmp.push(newEmp); //we don't need it because When i create a new emp it will push to Employee.allEmp array
 
-    for (let i = 0; i < Employee.allEmp.length; i++) {
-        Employee.allEmp[i].render();
-    }
-
     saveDataOnLocalStorage();
+
+    newEmp.render();
+
+    // for (let i = 0; i < Employee.allEmp.length; i++) {
+    //     Employee.allEmp[i].render();
+    // }
 }
 
 //================End Event Listner To Get Data From Form
+
+getDataFromLocalStorage();
