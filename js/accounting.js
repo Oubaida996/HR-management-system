@@ -118,7 +118,8 @@ function netTotal() {
         netTotalSalary =
             netTotalSalary + InfoDepartment.allInfoDepartment[i].totalSalary;
         netTotalAvgSalary =
-            netTotalAvgSalary - InfoDepartment.allInfoDepartment[i].avgSalary;
+            Number(netTotalAvgSalary) + Number(InfoDepartment.allInfoDepartment[i].avgSalary);
+
     }
 }
 
@@ -208,7 +209,7 @@ trFooter.appendChild(tdSalary);
 
 //Total Avg Salary
 let tdAvg = document.createElement("td");
-tdAvg.textContent = netTotalAvgSalary.toFixed(3) * (0 - 1); //I have a problem here ****
+tdAvg.textContent = netTotalAvgSalary.toFixed(3); //I have a problem here ****
 trFooter.appendChild(tdAvg);
 
 //============End Footer Of Table
