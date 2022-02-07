@@ -196,6 +196,10 @@ let emp7 = new Employee(
 
 //========End Create Employees Instances
 
+
+
+console.log(Employee.allEmp);
+
 for (let i = 0; i < Employee.allEmp.length; i++) {
     Employee.allEmp[i].render();
 }
@@ -213,7 +217,7 @@ for (let i = 0; i < Employee.allEmp.length; i++) {
 
 
 
-saveDataOnLocalStorage();
+
 
 
 
@@ -251,11 +255,17 @@ function handleSubmit(event) {
     );
     // Employee.allEmp.push(newEmp); //we don't need it because When i create a new emp it will push to Employee.allEmp array
 
-    for (let i = 0; i < Employee.allEmp.length; i++) {
-        Employee.allEmp[i].render();
-    }
 
     saveDataOnLocalStorage();
+
+
+    newEmp.render();
+
+    // for (let i = 0; i < Employee.allEmp.length; i++) {
+    //     Employee.allEmp[i].render();
+    // }
+
+
 }
 
 //================End Event Listner To Get Data From Form
