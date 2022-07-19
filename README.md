@@ -21,7 +21,7 @@ building an HR management system for a company, where they can organize their em
 - Average salary of the department
 - Total salary  salary is the summation of salaries for all employees in each department.  
 
- * table footer
-  - which will have the total number of employees, the average salary for all departments and the total salary for all departments
+ * table footer  
+   which will have the total number of employees, the average salary for all departments and the total salary for all departments
   
 
