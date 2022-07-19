@@ -15,11 +15,15 @@ building an HR management system for a company, where they can organize their em
 
 
  * department's information in a table:
-
-** Department Name
-** Number of employees in each department.
-** Average salary of the department
-** Total salary  salary is the summation of salaries for all employees in each department.
+| Department Name  |   Number of employees | Average salary  | Total salary  |
+|---|---|---|---|---|
+|   |   |   |   |   |
+|   |   |   |   |   |
+|   |   |   |   |   |
+| 
+| in each department.
+|  of the department
+|   salary is the summation of salaries for all employees in each department.
   * table footer
   ** which will have the total number of employees, the average salary for all departments and the total salary for all departments
   
