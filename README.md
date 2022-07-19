@@ -14,7 +14,7 @@ building an HR management system for a company, where they can organize their em
 ## Accounting Page
 
 
- * department's information in a table:
+ ### department's information in a table:
 
 - Department Name
 - Number of employees in each department.
