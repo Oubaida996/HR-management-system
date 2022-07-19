@@ -1,7 +1,6 @@
-# HR-management-system
+# HR-management-system :
 
-employee management system, 
-building an HR management system for a company, where they can organize their employees with their information and filter them.
+Building an HR management system for a company, where they can organize their employees with their information and filter them.
 
 
  **All data saved as employees object in the Local Storage so when you refresh the page you will not lose my old data.**
@@ -10,6 +9,7 @@ building an HR management system for a company, where they can organize their em
 - Render the department sections 
 - Render the information for each employee in his department section  .
 - Add employee to system by form . 
+
 
 ## Accounting Page
 
